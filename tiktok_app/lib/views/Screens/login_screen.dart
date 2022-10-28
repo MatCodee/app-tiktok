@@ -19,9 +19,12 @@ class LoginScreen extends StatelessWidget {
             children: [
               Text(
                 "Boomby",
-                style: TextStyle(fontSize: 35, fontWeight: FontWeight.w900,color: buttonColor),
+                style: TextStyle(
+                    fontSize: 35,
+                    fontWeight: FontWeight.w900,
+                    color: buttonColor),
               ),
-              Text(
+              const Text(
                 "Login",
                 style: TextStyle(fontSize: 25, fontWeight: FontWeight.w700),
               ),
@@ -47,6 +50,7 @@ class LoginScreen extends StatelessWidget {
                   controller: _passwordController,
                   labelText: 'Password',
                   icon: Icons.lock,
+                  isObscure: true,
                 ),
               ),
               const SizedBox(
@@ -61,14 +65,15 @@ class LoginScreen extends StatelessWidget {
                 ),
                 child: InkWell(
                   onTap: () {
-                    print("Button de logion");
+                    authController.loginUser(
+                        _emailController.text, _passwordController.text);
                   },
                   child: const Center(
                       child: Text(
                     "login",
                     style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w700,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w700,
                     ),
                   )),
                 ),
@@ -83,15 +88,17 @@ class LoginScreen extends StatelessWidget {
                     "Don't have a account",
                     style: TextStyle(fontSize: 20),
                   ),
-                  SizedBox(width: 5.0,),
+                  SizedBox(
+                    width: 5.0,
+                  ),
                   InkWell(
-                    onTap: () {
-                      print("Viajando a la pantalla de registro");
-                    },
-                    child: Text(
-                    "Register",
-                    style: TextStyle(fontSize: 20, color: buttonColor),
-                  ))
+                      onTap: () {
+                        print("Viajando a la pantalla de registro");
+                      },
+                      child: Text(
+                        "Register",
+                        style: TextStyle(fontSize: 20, color: buttonColor),
+                      ))
                 ],
               ),
             ],
