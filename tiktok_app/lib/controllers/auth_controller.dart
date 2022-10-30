@@ -13,6 +13,10 @@ class AuthController extends GetxController {
   static AuthController instance = Get.find();
   late Rx<File?> _pickedImage;
   late Rx<User?> _user;
+
+  File? get ProfilePhoto => _pickedImage.value;
+  User get user => _user.value!;
+
   // register the Users
 
   @override
@@ -89,8 +93,6 @@ class AuthController extends GetxController {
     }
   }
 
-  File? get ProfilePhoto => _pickedImage.value;
-
   // Estas son las funciones de logn de la aplicacion
   void loginUser(String email, String password) async {
     try {
@@ -104,5 +106,9 @@ class AuthController extends GetxController {
     } catch (e) {
       Get.snackbar("Error Login Account", e.toString());
     }
+  }
+
+  void signOut() async {
+    await firebaseAuth.signOut();
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tiktok_app/constants.dart';
+import 'package:tiktok_app/views/Screens/login_screen.dart';
 import 'package:tiktok_app/views/Widget/text_input_field.dart';
 
 class SignUpScreen extends StatelessWidget {
@@ -129,7 +130,11 @@ class SignUpScreen extends StatelessWidget {
                     ),
                     InkWell(
                         onTap: () {
-                          print("Viajando a la pantalla de registro");
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => LoginScreen(),
+                            ),
+                          );
                         },
                         child: Text(
                           "Register",

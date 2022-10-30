@@ -4,14 +4,17 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:tiktok_app/controllers/auth_controller.dart';
 import 'package:tiktok_app/views/Screens/add_video.dart';
+import 'package:tiktok_app/views/Screens/profile_screen.dart';
+import 'package:tiktok_app/views/Screens/search_screen.dart';
+import 'package:tiktok_app/views/Screens/video_screen.dart';
 
 // Pages:
-const pages = [
-  Text("home Screen"),
-  Text("Search Screen"),
-  AddVideoScreen(),
+List pages = [
+  VideoScreen(),
+  SearchScreen(),
+  const AddVideoScreen(),
   Text("Messages Screen"),
-  Text("Profile Screen"),
+  ProfileScreen(uid: authController.user.uid),
 ];
 
 // Firebase
